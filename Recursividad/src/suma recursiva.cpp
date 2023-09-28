@@ -9,11 +9,22 @@
 void sumaRecursiva(){
 	int longitud = 10;
 	int arrayDeEnteros[longitud];
-
 	inicializarArray(arrayDeEnteros, longitud);
 
 	int resultado = sumarRecursivamente(arrayDeEnteros, longitud);
-	std::cout << resultado;
+	std::cout<<"El resultado de la suma del array [" ;
+	mostrarArray(arrayDeEnteros, longitud);
+	std::cout << "] es:" << resultado;
+}
+
+void mostrarArray(int array[], int& longitud){
+	for (int i = 0; i<longitud; i++){
+		if (i == longitud-1){
+			std::cout << array[i];
+		}else{
+			std::cout << array[i]<< ", ";
+		}
+	}
 }
 
 void inicializarArray(int array[], int longitud){
@@ -35,7 +46,6 @@ void sumaR(int array[], int& longitud, int* suma){
 	}else{
 		longitud -= 1;
 		*suma += array[longitud];
-		std::cout << array[longitud]<<"\n";
 		sumaR(array, longitud, suma);
 	}
 }
