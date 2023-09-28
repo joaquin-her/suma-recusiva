@@ -5,9 +5,9 @@
  *      Author: algo2
  */
 #include <iostream>
-
+#include "suma recursiva.h"
 int main() {
-	std::cout << "hello world";
+	sumaRecursiva();
 }
 
 
