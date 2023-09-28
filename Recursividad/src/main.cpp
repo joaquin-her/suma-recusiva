@@ -6,9 +6,10 @@
  */
 #include <iostream>
 #include "suma recursiva.h"
+#include  "ordenamiento recursivo.h"
 int main() {
 	sumaRecursiva();
-
+	ordenamientoPorSeleccion();
 }
 
 
