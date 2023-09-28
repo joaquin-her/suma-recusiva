@@ -22,17 +22,20 @@ void inicializarArray(int array[], int longitud){
 	}
 }
 
-int sumarRecursivamente(int array[], int& longitud){
+int sumarRecursivamente(int array[], int longitud){
 	int suma = 0;
-	return sumaR(array, longitud, suma );
+	int* pSuma = &suma;
+	sumaR(array, longitud, pSuma );
+	return suma;
 }
 
-int sumaR(int array[], int& longitud, int& suma){
-	suma += array[longitud];
-	longitud -= 1;
-	if (longitud < 0){
-		return suma;
+void sumaR(int array[], int& longitud, int* suma){
+	if (longitud == 0){
+		return;
 	}else{
+		longitud -= 1;
+		*suma += array[longitud];
+		std::cout << array[longitud]<<"\n";
 		sumaR(array, longitud, suma);
 	}
 }

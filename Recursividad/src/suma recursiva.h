@@ -15,9 +15,9 @@ void sumaRecursiva();
 void inicializarArray(int array[], int longitud);
 
 //se realiza la suma de los valores del array de forma recursiva
-int sumarRecursivamente(int array[], int &longitud);
+int sumarRecursivamente(int array[], int longitud);
 
 //realia la suma
-int sumaR(int array[], int&longitud, int& contador_suma);
+void sumaR(int array[], int&longitud, int* contador_suma);
 
 #endif /* SUMA_RECURSIVA_H_ */
