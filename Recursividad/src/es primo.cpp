@@ -11,14 +11,15 @@
  *ejercicio aplicando recursidad mutua determinen si un numero es primo o no
  */
 void esPrimoRecursivo(){
-	int numeroPrimo = 11;
-	int numeroNoPrimo = 6;
-	bool resultado1 = esPrimo(numeroPrimo);
-	bool resultado2 = esPrimo(numeroNoPrimo);
-	mostrarResultado(numeroPrimo, resultado1);
-	mostrarResultado(numeroNoPrimo, resultado2);
+	mostrarPrimosHasta(22);
 }
 
+void mostrarPrimosHasta(int numero){
+	for (int i = 0;i<numero;i++){
+		int resultado = esPrimo(i);
+		mostrarResultado(i, resultado);
+	}
+}
 void mostrarResultado(int& numero, bool resultado){
 	if (resultado){
 		std::cout << "\nEl numero "<<numero<< " es primo\n";
