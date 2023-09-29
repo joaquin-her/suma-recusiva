@@ -4,7 +4,7 @@
  *  Created on: 28/09/2023
  *      Author: algo2
  */
-
+#include "ordenamiento recursivo.h"
 void ordenamientoPorSeleccion(){
 	/*
 	 * El ordenamiento por seleccion realiza comparaciones hasta encontrar el minimo dentro de
@@ -26,10 +26,37 @@ void ordenarSelectivamente(int array[], int longitud){
 	 */
 	int* punteroPosicion;
 	int* punteroMaximo;
-	intercambiarMaximos(array, longitud, punteroMaximo, punteroPosicion);
+	int iteracion = longitud;
+	int* pIteracion = &iteracion;
+	intercambiarMaximos(array, longitud, punteroMaximo, punteroPosicion, pIteracion);
 
 }
 
-void intercambiarMaximos(array, longitud, punteroM, punteroP){
+void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, int* pI){
+	if (longitud == 0){
+		longitud = *pI; //fix
+		*pI -= 1 ; //fix
+		intercambiarPunteros(punteroM, punteroP);
+		intercambiarMaximos(array, longitud, punteroM, punteroP, pI);
+	}
+	if (*pI == longitud){
+		punteroM = &array[longitud];
+		punteroP = &array[longitud];
+	}
+	if (*pI == 0){
+		return;
+	}
+	if (*punteroM < array[longitud]){
+		punteroM = &array[longitud];
+	}
+	longitud -=1 ; //fix
+	intercambiarMaximos(array, longitud, punteroM, punteroP, pI);
+}
 
+void intercambiarPunteros(int* puntero1, int* puntero2){
+	int* aux = new int;
+	*aux = *puntero1;
+	*puntero1 = *puntero2;
+	*puntero2 = *aux;
+	delete aux;
 }

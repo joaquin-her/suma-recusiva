@@ -15,6 +15,8 @@ void ordenamientoPorSeleccion();
 void ordenarSelectivamente(int array[], int longitud);
 
 //ordena los maximos del array al fondo de la lista ordenandola de menor a mayor
-void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP);
+void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, int* punteroIteracion);
 
+//intercambia los valores contenidos en el array donde apuntan los punteros
+void intercambiarPunteros(int* puntero1, int* puntero2);
 #endif /* ORDENAMIENTO_RECURSIVO_H_ */
