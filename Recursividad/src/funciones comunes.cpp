@@ -5,6 +5,7 @@
  *      Author: algo2
  */
 #include <iostream>
+#include "funciones comunes.h"
 void mostrarArray(int array[], int& longitud){
 	for (int i = 0; i<longitud; i++){
 		if (i == longitud-1){
