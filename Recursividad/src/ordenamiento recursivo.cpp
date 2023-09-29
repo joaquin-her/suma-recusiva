@@ -6,6 +6,7 @@
  */
 #include "ordenamiento recursivo.h"
 #include "funciones comunes.h"
+#include <iostream>
 void ordenamientoPorSeleccion(){
 	/*
 	 * El ordenamiento por seleccion realiza comparaciones hasta encontrar el minimo dentro de
@@ -14,24 +15,23 @@ void ordenamientoPorSeleccion(){
 	 */
 	int longitud = 10;
 	int arrayDeEnteros[longitud] = {10,9,2,23,56,6,-12,34,5,0};
-	mostrarArray(arrayDeEnteros, longitud);
+	std::cout << "Array desordenado: "; mostrarArray(arrayDeEnteros, longitud);std::cout << std::endl;
 	ordenarSelectivamente(arrayDeEnteros, longitud);
-	mostrarArray(arrayDeEnteros, longitud);
+	std::cout << "Array ordenado: "; mostrarArray(arrayDeEnteros, longitud);std::cout << std::endl;
 }
 
-void ordenarSelectivamente(int array[], int longitud){
 	/*
 	 * La idea es crear un puntero que apunte la posicion a modificar (ultima), y
 	 * otro que itere al resto de items y se compare con el maximo. Cuando
 	 * se llegue al final se realice el intercambio de lugares entre el puntero posicion
 	 * y el puntero maximo. Se termine el ordenamiento cuando el largo de la lista sea 0
 	 */
+void ordenarSelectivamente(int array[], int longitud){
 	int* punteroPosicion;
 	int* punteroMaximo;
 	int iteracion = longitud-1;
 	int* pIteracion = &iteracion;
 	intercambiarMaximos(array, longitud, punteroMaximo, punteroPosicion, pIteracion);
-
 }
 
 void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, int* pI){
@@ -39,8 +39,8 @@ void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, 
 		return;
 	}
 	if (longitud == 0){
-		longitud = *pI; //fix
-		*pI -= 1 ; //fix
+		longitud = *pI;
+		*pI -= 1 ;
 		intercambiarPunteros(punteroM, punteroP);
 		intercambiarMaximos(array, longitud, punteroM, punteroP, pI);
 	}
@@ -52,7 +52,7 @@ void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, 
 	if (*punteroM < array[longitud-1]){
 		punteroM = &array[longitud-1];
 	}
-	longitud -=1 ; //fix
+	longitud -=1 ;
 	intercambiarMaximos(array, longitud, punteroM, punteroP, pI);
 }
 
@@ -63,3 +63,47 @@ void intercambiarPunteros(int* puntero1, int* puntero2){
 	*puntero2 = *aux;
 	delete aux;
 }
+
+/*
+ * el ordenamiento por burbujeo realiza iteraciones sobre la lista a ordenar intercambiando
+ * los elementos contiguos para dejar los mayores hacia el final (en caso de ordenamiento menor-mayor)
+ * hasta que la lista esta ordenada. Cuando termina de recorrer la lista, el ultimo elemento ya esta ordenado
+ */
+void ordenamientoPorBurbujeo(){
+	int longitud = 10;
+	int arrayDeEnteros[longitud] = {10,9,2,23,56,6,-12,34,5,0};
+	int posicion = 0;
+	int* punteroPosicion = &posicion;
+	std::cout<< "\nArray desordenado: "; mostrarArray(arrayDeEnteros, longitud);
+	ordenarPorBurbuja(arrayDeEnteros,longitud-1, punteroPosicion);
+	std::cout<< "\nArray ordenado: "; mostrarArray(arrayDeEnteros, longitud);
+}
+
+void ordenarPorBurbuja(int array[], int longitud, int* posicion){
+	if (longitud == 1){
+		return;
+	}
+	if (*posicion == longitud){
+		*posicion = 0;
+		longitud -= 1;
+		ordenarPorBurbuja(array, longitud, posicion);
+	}else{
+		if (array[*posicion] > array[*posicion+1]){
+			intercambiarPosicion(&array[*posicion], &array[*posicion+1]);
+		}
+		*posicion += 1;
+		ordenarPorBurbuja(array, longitud, posicion);
+	}
+}
+
+void intercambiarPosicion(int* punteroA, int* punteroB){
+	int* aux = new int;
+	*aux = *punteroA;
+	*punteroA = *punteroB;
+	*punteroB = *aux;
+	delete aux;
+}
+
+
+
+
