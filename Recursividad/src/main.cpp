@@ -7,10 +7,12 @@
 #include <iostream>
 #include "suma recursiva.h"
 #include  "ordenamiento recursivo.h"
+#include "es primo.h"
 int main() {
 	sumaRecursiva();
 	ordenamientoPorSeleccion();
 	ordenamientoPorBurbujeo();
+	esPrimoRecursivo();
 }
 
 
