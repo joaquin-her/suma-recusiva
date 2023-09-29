@@ -5,6 +5,7 @@
  *      Author: algo2
  */
 #include "suma recursiva.h"
+#include "funciones comunes.h"
 #include <iostream>
 void sumaRecursiva(){
 	int longitud = 10;
@@ -15,22 +16,6 @@ void sumaRecursiva(){
 	std::cout<<"El resultado de la suma del array [" ;
 	mostrarArray(arrayDeEnteros, longitud);
 	std::cout << "] es:" << resultado;
-}
-
-void mostrarArray(int array[], int& longitud){
-	for (int i = 0; i<longitud; i++){
-		if (i == longitud-1){
-			std::cout << array[i];
-		}else{
-			std::cout << array[i]<< ", ";
-		}
-	}
-}
-
-void inicializarArray(int array[], int longitud){
-	for (int i = 0; i < longitud; i++){
-		array[i] = i*10;
-	}
 }
 
 int sumarRecursivamente(int array[], int longitud){

@@ -11,12 +11,6 @@
 //la funcion principal que ejecuta la aplicacion suma recursiva
 void sumaRecursiva();
 
-//se rellena el array con valores arbitrarios
-void inicializarArray(int array[], int longitud);
-
-//muestra los valores del array por consola
-void mostrarArray(int array[], int& longitud);
-
 //se realiza la suma de los valores del array de forma recursiva
 int sumarRecursivamente(int array[], int longitud);
 
