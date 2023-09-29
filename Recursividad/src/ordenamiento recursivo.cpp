@@ -28,28 +28,29 @@ void ordenarSelectivamente(int array[], int longitud){
 	 */
 	int* punteroPosicion;
 	int* punteroMaximo;
-	int iteracion = longitud;
+	int iteracion = longitud-1;
 	int* pIteracion = &iteracion;
 	intercambiarMaximos(array, longitud, punteroMaximo, punteroPosicion, pIteracion);
 
 }
 
 void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, int* pI){
-	if (longitud < 0){
+	if (*pI == 0){
+		return;
+	}
+	if (longitud == 0){
 		longitud = *pI; //fix
 		*pI -= 1 ; //fix
 		intercambiarPunteros(punteroM, punteroP);
 		intercambiarMaximos(array, longitud, punteroM, punteroP, pI);
 	}
-	if (*pI == longitud){
-		punteroM = &array[longitud];
-		punteroP = &array[longitud];
+	if (*pI+1 == longitud){
+		punteroM = &array[longitud-1];
+		punteroP = &array[longitud-1];
 	}
-	if (*pI < 0){
-		return;
-	}
-	if (*punteroM < array[longitud]){
-		punteroM = &array[longitud];
+
+	if (*punteroM < array[longitud-1]){
+		punteroM = &array[longitud-1];
 	}
 	longitud -=1 ; //fix
 	intercambiarMaximos(array, longitud, punteroM, punteroP, pI);
