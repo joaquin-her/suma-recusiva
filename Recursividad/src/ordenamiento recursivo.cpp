@@ -5,6 +5,7 @@
  *      Author: algo2
  */
 #include "ordenamiento recursivo.h"
+#include "funciones comunes.h"
 void ordenamientoPorSeleccion(){
 	/*
 	 * El ordenamiento por seleccion realiza comparaciones hasta encontrar el minimo dentro de
@@ -13,8 +14,9 @@ void ordenamientoPorSeleccion(){
 	 */
 	int longitud = 10;
 	int arrayDeEnteros[longitud] = {10,9,2,23,56,6,-12,34,5,0};
+	mostrarArray(arrayDeEnteros, longitud);
 	ordenarSelectivamente(arrayDeEnteros, longitud);
-
+	mostrarArray(arrayDeEnteros, longitud);
 }
 
 void ordenarSelectivamente(int array[], int longitud){
