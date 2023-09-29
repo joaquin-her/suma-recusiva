@@ -20,4 +20,6 @@ bool esPrimo(int numero);
 //devuelve true si el numero no es primo
 bool noEsPrimo(int numero);
 
+//muestra todos los numeros primos desde el 0 hasta el numero
+void mostrarPrimosHasta(int numero);
 #endif /* ES_PRIMO_H_ */
