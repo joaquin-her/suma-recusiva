@@ -13,9 +13,9 @@ void sumaRecursiva(){
 	inicializarArray(arrayDeEnteros, longitud);
 
 	int resultado = sumarRecursivamente(arrayDeEnteros, longitud);
-	std::cout<<"El resultado de la suma del array [" ;
+	std::cout<<"El resultado de la suma del array " ;
 	mostrarArray(arrayDeEnteros, longitud);
-	std::cout << "] es:" << resultado;
+	std::cout << " es:" << resultado<<"\n\n";
 }
 
 int sumarRecursivamente(int array[], int longitud){
