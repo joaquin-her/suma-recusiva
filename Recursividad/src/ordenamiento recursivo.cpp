@@ -35,7 +35,7 @@ void ordenarSelectivamente(int array[], int longitud){
 }
 
 void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, int* pI){
-	if (longitud == 0){
+	if (longitud < 0){
 		longitud = *pI; //fix
 		*pI -= 1 ; //fix
 		intercambiarPunteros(punteroM, punteroP);
@@ -45,7 +45,7 @@ void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, 
 		punteroM = &array[longitud];
 		punteroP = &array[longitud];
 	}
-	if (*pI == 0){
+	if (*pI < 0){
 		return;
 	}
 	if (*punteroM < array[longitud]){
