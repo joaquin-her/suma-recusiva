@@ -89,20 +89,13 @@ void ordenarPorBurbuja(int array[], int longitud, int* posicion){
 		ordenarPorBurbuja(array, longitud, posicion);
 	}else{
 		if (array[*posicion] > array[*posicion+1]){
-			intercambiarPosicion(&array[*posicion], &array[*posicion+1]);
+			intercambiarPunteros(&array[*posicion], &array[*posicion+1]);
 		}
 		*posicion += 1;
 		ordenarPorBurbuja(array, longitud, posicion);
 	}
 }
 
-void intercambiarPosicion(int* punteroA, int* punteroB){
-	int* aux = new int;
-	*aux = *punteroA;
-	*punteroA = *punteroB;
-	*punteroB = *aux;
-	delete aux;
-}
 
 
 

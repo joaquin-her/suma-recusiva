@@ -17,15 +17,10 @@ void ordenarSelectivamente(int array[], int longitud);
 //ordena los maximos del array al fondo de la lista ordenandola de menor a mayor
 void intercambiarMaximos(int array[],int& longitud,int* punteroM,int* punteroP, int* punteroIteracion);
 
-//intercambia los valores contenidos en el array donde apuntan los punteros
-void intercambiarPunteros(int* puntero1, int* puntero2);
-
 //ejercicio 2b de los adicionales de recursividad: escribir una version recursiva del ordenamiento por burbujeo
 void ordenamientoPorBurbujeo();
 
 //wrapper de la funcion recursiva que ordena el array
 void ordenarPorBurbuja(int array[], int longitud, int* posicion);
 
-//intercambia la posicion de los valores de la lista
-void intercambiarPosicion(int* punteroA, int* punteroB);
 #endif /* ORDENAMIENTO_RECURSIVO_H_ */
